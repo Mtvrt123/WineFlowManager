@@ -1,0 +1,267 @@
+# Default datasource configuration
+%prod.quarkus.datasource.db-kind=mysql
+%prod.quarkus.datasource.username=root
+%prod.quarkus.datasource.password=gePRep5a!
+%prod.quarkus.datasource.reactive.url=vertx-reactive:mysql://127.0.0.1:3306/vinograds
+
+%prod.rabbitmq-host=localhost
+%prod.rabbitmq-port=5672
+%prod.rabbitmq-username=guest
+%prod.rabbitmq-password=guest
+
+# Outbound
+%prod.mp.messaging.outgoing.vinograds.connector=smallrye-rabbitmq
+%prod.mp.messaging.outgoing.vinograds.exchange.name=vinograds
+
+
+%dev.rabbitmq-host=localhost
+%dev.rabbitmq-port=5672
+%dev.rabbitmq-username=guest
+%dev.rabbitmq-password=guest
+
+%dev.mp.messaging.outgoing.vinograds.connector=smallrye-rabbitmq
+%dev.mp.messaging.outgoing.vinograds.exchange.name=vinograds
+
+%dev.quarkus.rabbitmq.devservices.image-name=rabbitmq:3-management
+%dev.quarkus.rabbitmq.devservices.exchanges.vinograds.type=topic            # defaults to 'direct'
+%dev.quarkus.rabbitmq.devservices.exchanges.vinograds.auto-delete=false     # defaults to 'false'
+%dev.quarkus.rabbitmq.devservices.exchanges.vinograds.durable=true          # defaults to 'false'
+%dev.quarkus.rabbitmq.devservices.queues.vinograds.auto-delete=false          # defaults to 'false'
+%dev.quarkus.rabbitmq.devservices.queues.vinograds.durable=true               # defaults to 'false'
+%dev.quarkus.rabbitmq.devservices.bindings.a-binding.source=vinograds      # defaults to name of binding
+%dev.quarkus.rabbitmq.devservices.bindings.a-binding.destination=vinograds   # defaults to name of binding
+%dev.quarkus.rabbitmq.devservices.bindings.a-binding.destination-type=queue  # defaults to 'queue'
+#%test.quarkus.rabbitmq.devservices.bindings.a-binding.routing-key=some-key    # defaults to '#'
+
+
+%test.rabbitmq-host=localhost
+%test.rabbitmq-port=5672
+%test.rabbitmq-username=guest
+%test.rabbitmq-password=guest
+
+%test.mp.messaging.outgoing.vinograds.connector=smallrye-rabbitmq
+%test.mp.messaging.outgoing.vinograds.exchange.name=vinograds
+
+%test.quarkus.rabbitmq.devservices.image-name=rabbitmq:3-management
+%test.quarkus.rabbitmq.devservices.exchanges.vinograds.type=topic            # defaults to 'direct'
+%test.quarkus.rabbitmq.devservices.exchanges.vinograds.auto-delete=false     # defaults to 'false'
+%test.quarkus.rabbitmq.devservices.exchanges.vinograds.durable=true          # defaults to 'false'
+%test.quarkus.rabbitmq.devservices.queues.vinograds.auto-delete=false          # defaults to 'false'
+%test.quarkus.rabbitmq.devservices.queues.vinograds.durable=true               # defaults to 'false'
+%test.quarkus.rabbitmq.devservices.bindings.a-binding.source=vinograds      # defaults to name of binding
+%test.quarkus.rabbitmq.devservices.bindings.a-binding.destination=vinograds   # defaults to name of binding
+%test.quarkus.rabbitmq.devservices.bindings.a-binding.destination-type=queue  # defaults to 'queue'
+#%test.quarkus.rabbitmq.devservices.bindings.a-binding.routing-key=some-key    # defaults to '#'
+
+%dev.quarkus.datasource."Vinograd".db-kind = h2
+%dev.quarkus.hibernate-orm."Vinograd".database.generation=drop-and-create
+
+%test.quarkus.datasource."Vinograd".db-kind = h2
+%test.quarkus.hibernate-orm."Vinograd".database.generation=drop-and-create
+
+
+# Hibernate ORM settings
+%prod.quarkus.hibernate-orm.database.generation=drop-and-create
+%prod.quarkus.hibernate-orm.log.sql=true
+quarkus.hibernate-orm.database.generation=drop-and-create
+
+history.dayslimit=10
+
+
+
+
+
+
+#_________________________________________________
+
+# Default datasource configuration
+%prod.quarkus.datasource.db-kind=mysql
+%prod.quarkus.datasource.username=root
+%prod.quarkus.datasource.password=gePRep5a!
+%prod.quarkus.datasource.reactive.url=vertx-reactive:mysql://127.0.0.1:3306/vinograds
+
+rabbitmq-host=localhost
+rabbitmq-port=5672
+rabbitmq-username=guest
+rabbitmq-password=guest
+
+# Outbound
+mp.messaging.outgoing.vinograds.connector=smallrye-rabbitmq
+mp.messaging.outgoing.vinograds.exchange.name=vinograds
+
+quarkus.datasource.db-kind=mysql
+quarkus.datasource.username=root
+quarkus.datasource.password=gePRep5a!
+quarkus.datasource.reactive.url=vertx-reactive:mysql://127.0.0.1:3306/vinograds
+
+quarkus.hibernate-orm.database.generation=drop-and-create
+
+
+%dev.quarkus.datasource."Vinograd".db-kind = h2
+%dev.quarkus.hibernate-orm."Vinograd".database.generation=drop-and-create
+
+%test.quarkus.datasource."Vinograd".db-kind = h2
+%test.quarkus.hibernate-orm."Vinograd".database.generation=drop-and-create
+
+
+# Hibernate ORM settings
+%prod.quarkus.hibernate-orm.database.generation=drop-and-create
+%prod.quarkus.hibernate-orm.log.sql=true
+
+history.dayslimit=10
+
+
+_______________________________________________________
+
+# PRODUCTION
+
+# Default datasource configuration
+%prod.quarkus.datasource.db-kind=mysql
+%prod.quarkus.datasource.username=root
+%prod.quarkus.datasource.password=root
+%prod.quarkus.datasource.reactive.url=vertx-reactive:mysql://127.0.0.1:3306/vinograds
+
+%prod.rabbitmq-host=localhost
+%prod.rabbitmq-port=5672
+%prod.rabbitmq-username=guest
+%prod.rabbitmq-password=guest
+
+# Outbound
+%prod.mp.messaging.outgoing.vinograds.connector=smallrye-rabbitmq
+%prod.mp.messaging.outgoing.vinograds.exchange.name=vinograds
+
+
+# DEV
+%dev.quarkus.datasource.db-kind=mysql
+%dev.quarkus.datasource.username=root
+%dev.quarkus.datasource.password=root
+%dev.quarkus.datasource.reactive.url=vertx-reactive:mysql://127.0.0.1:3306/vinograds
+
+%dev.quarkus.rabbitmq.devservices.image-name=rabbitmq:3-management
+%dev.quarkus.rabbitmq.devservices.exchanges.vinograds.type=topic                # defaults to 'direct'
+%dev.quarkus.rabbitmq.devservices.exchanges.vinograds.auto-delete=false         # defaults to 'false'
+%dev.quarkus.rabbitmq.devservices.exchanges.vinograds.durable=true              # defaults to 'false'
+%dev.quarkus.rabbitmq.devservices.queues.vinograds.auto-delete=false            # defaults to 'false'
+%dev.quarkus.rabbitmq.devservices.queues.vinograds.durable=true                 # defaults to 'false'
+%dev.quarkus.rabbitmq.devservices.bindings.vinograds.source=vinograds           # defaults to name of binding
+%dev.quarkus.rabbitmq.devservices.bindings.vinograds.destination=vinograds      # defaults to name of binding
+%dev.quarkus.rabbitmq.devservices.bindings.vinograds.destination-type=queue     # defaults to 'queue'
+%dev.quarkus.rabbitmq.devservices.bindings.vinograds.routing-key=#              # defaults to '#'
+
+# TEST
+%test.quarkus.datasource.db-kind=mysql
+%test.quarkus.datasource.username=root
+%test.quarkus.datasource.password=root
+%test.quarkus.datasource.reactive.url=vertx-reactive:mysql://127.0.0.1:3306/vinograds
+
+%test.quarkus.rabbitmq.devservices.image-name=rabbitmq:3-management
+%test.quarkus.rabbitmq.devservices.exchanges.vinograds.type=topic                # defaults to 'direct'
+%test.quarkus.rabbitmq.devservices.exchanges.vinograds.auto-delete=false         # defaults to 'false'
+%test.quarkus.rabbitmq.devservices.exchanges.vinograds.durable=true              # defaults to 'false'
+%test.quarkus.rabbitmq.devservices.queues.vinograds.auto-delete=false            # defaults to 'false'
+%test.quarkus.rabbitmq.devservices.queues.vinograds.durable=true                 # defaults to 'false'
+%test.quarkus.rabbitmq.devservices.bindings.vinograds.source=vinograds           # defaults to name of binding
+%test.quarkus.rabbitmq.devservices.bindings.vinograds.destination=vinograds      # defaults to name of binding
+%test.quarkus.rabbitmq.devservices.bindings.vinograds.destination-type=queue     # defaults to 'queue'
+%test.quarkus.rabbitmq.devservices.bindings.vinograds.routing-key=#              # defaults to '#'
+
+
+#%prod.quarkus.datasource.db-kind=mysql
+#%prod.quarkus.datasource.username=root
+#%prod.quarkus.datasource.password=gePRep5a!
+#%prod.quarkus.datasource.reactive.url=vertx-reactive:mysql://127.0.0.1:3306/vinograds
+#
+#quarkus.hibernate-orm.database.generation=drop-and-create
+
+
+#%dev.quarkus.datasource."Vinograd".db-kind = h2
+#%dev.quarkus.hibernate-orm."Vinograd".database.generation=drop-and-create
+
+#%test.quarkus.datasource."Vinograd".db-kind = h2
+#%test.quarkus.hibernate-orm."Vinograd".database.generation=drop-and-create
+
+
+# Hibernate ORM settings
+%prod.quarkus.hibernate-orm.database.generation=drop-and-create
+%prod.quarkus.hibernate-orm.log.sql=true
+%dev.quarkus.hibernate-orm.database.generation=drop-and-create
+%dev.quarkus.hibernate-orm.log.sql=true
+%test.quarkus.hibernate-orm.database.generation=drop-and-create
+%test.quarkus.hibernate-orm.log.sql=true
+
+history.dayslimit=10
+
+
+POST
+
+        //Vinograd vinograd = new Vinograd();
+        //vinograd.naziv = v.naziv;
+        //vinograd.povrsina = v.povrsina;
+        //vinograd.letozacetka = v.letozacetka;
+//
+//
+        //Panache.withTransaction(vinograd::persist)
+        //        .replaceWith(vinograd)
+        //        .ifNoItem()
+        //        .after(Duration.ofMillis(5000))
+        //        .fail()
+        //        .onFailure()
+        //        .transform(t -> {
+        //            Logger.getLogger(VinogradREST.class.getName()).severe("EXCEPTION HAPPENED adding vinograd");
+        //            Emitter.send("EXCEPTION HAPPENED adding vinograd");
+        //            return new IllegalStateException(t);
+        //        })
+        //        .onItem().transform(item -> {
+        //            Logger.getLogger(VinogradREST.class.getName()).info("Vinograd is created: " + item.id);
+        //            Emitter.send("Vinograd is created: " + item.id);
+        //            return item;
+        //        });
+//
+        //Logger.getLogger(VinogradREST.class.getName()).info("Adding vinograd: " + vinograd.naziv);
+        //Emitter.send("addVinograd: " + vinograd.naziv);
+        //return Uni.createFrom().item(vinograd);
+
+        //Uni<Long> createStage = Panache
+        //        .withTransaction(vinograd::persist)
+        //        .replaceWith()
+        //        .ifNoItem()
+        //        .after(Duration.ofMillis(10000))
+        //        .fail()
+        //        .onFailure()
+        //        .transform(t -> {
+        //            System.out.println("exception happen lalal");
+        //            t.printStackTrace();
+        //            return new IllegalStateException(t);
+        //        })
+        //        .onItem().transform(item -> {
+        //            System.out.println("fruit is created: " + item.id);
+        //            return item.id;
+        //        });
+        //Uni<List<Fruit>> queryAllFruitsStage = Fruit.listAll();
+
+        //return createStage.chain(() -> queryAllFruitsStage);
+
+        //log.info("Adding vinograd: " + vinograd.naziv);
+        //Emitter.send("addVinograd: " + vinograd.naziv);
+        //Vinograd vinograd1 = new Vinograd();
+        //vinograd1.naziv = vinograd.naziv;
+        //vinograd1.povrsina = vinograd.povrsina;
+        //vinograd1.letozacetka = vinograd.letozacetka;
+        //return VinogradRepository.persist(vinograd1).map(vinograd2 -> vinograd1);
+
+        //log.info("Adding vinograd: " + vinograd.naziv);
+        //Emitter.send("addVinograd: " + vinograd.naziv);
+        //Vinograd v = new Vinograd();
+        //v.naziv = vinograd.naziv;
+        //v.povrsina = vinograd.povrsina;
+        //v.letozacetka = vinograd.letozacetka;
+        //return VinogradRepository.persist(v).map(vinograd1 -> v);
+        //var per = VinogradRepository.persist(v);
+        //return per.map(vinograd1 -> v);
+        //Panache.withTransaction(() -> {
+        //    Vinograd v = new Vinograd();
+        //    v.naziv = vinograd.naziv;
+        //    v.povrsina = vinograd.povrsina;
+        //    v.letozacetka = vinograd.letozacetka;
+        //    VinogradRepository.persist(v);
+        //});

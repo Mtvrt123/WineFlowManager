@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+
+    spring_db:
+        image: mysql:8.0.26
+        restart: always
+        expose:
+            - 3306
+        ports:
+            - 3306:3306
+        environment:
+          - MYSQL_USER=winestorage
+          - MYSQL_PASSWORD=winestorage
+          - MYSQL_DATABASE=winestorage
+          - MYSQL_ROOT_PASSWORD=root
+        volumes:
+          - mysql_db:/var/lib/mysql
+
+    winestorage:
+        build: .
+        restart: always
+        ports:
+            - 8180:8180
+        environment:
+            - SPRING_PROFILES_ACTIVE=mysql
+            - SPRING_DATASOURCE_USERNAME=root
+            - SPRING_DATASOURCE_PASSWORD=root
+            - SPRING_DATASOURCE_URL=jdbc:mysql://spring_db:3306/winestorage
+        depends_on:
+            - spring_db
+        entrypoint: ["java", "-jar", "-Dspring.profiles.active=mysql","/app.jar"]
+            
+volumes:
+    mysql_db:             
