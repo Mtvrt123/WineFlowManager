@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+option csharp_namespace = "mobile_gateway";
+
+option java_multiple_files = true;
+option java_package = "ita.uporabniki";
+option java_outer_classname = "UporabnikiGrpcProto";
+
+
+package uporabnik;
+
+service UporabnikiService {
+  rpc DodajUporabnika(UporabnikRequest) returns (UporabnikReply) {}
+  rpc VrniUporabnika(UporabnikRequestID) returns (UporabnikReply) {}
+  rpc PosodobiUporabnika(UporabnikRequestUpdate) returns (UporabnikReply) {}
+  rpc IzbrisiUporabnika(UporabnikRequestID) returns (UporabnikReply) {}
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckReply) {}
+}
+
+message HealthCheckRequest {
+}
+
+message HealthCheckReply {
+  string status = 1;
+}
+
+message UporabnikRequest {
+  string ime = 1;
+  string priimek = 2;
+  string email = 3;
+}
+
+message UporabnikReply {
+  string id = 1;
+  string ime = 2;
+  string priimek = 3;
+  string email = 4;
+}
+
+message UporabnikRequestID {
+  string id = 1;
+}
+
+message UporabnikRequestUpdate {
+  string id = 1;
+  string ime = 2;
+  string priimek = 3;
+  string email = 4;
+}

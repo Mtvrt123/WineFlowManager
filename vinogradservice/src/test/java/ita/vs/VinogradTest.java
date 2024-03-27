@@ -1,16 +1,7 @@
 package ita.vs;
 
-import io.quarkus.hibernate.reactive.panache.Panache;
-import io.quarkus.runtime.StartupEvent;
 import io.quarkus.test.junit.QuarkusTest;
-import io.quarkus.vertx.VertxContextSupport;
 import ita.vs.models.Vinograd;
-import ita.vs.repo.vinogradRepository;
-import jakarta.enterprise.event.Observes;
-import jakarta.inject.Inject;
-import jakarta.persistence.Entity;
-import org.hibernate.reactive.mutiny.Mutiny;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;

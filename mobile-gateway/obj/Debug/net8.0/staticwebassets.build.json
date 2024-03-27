@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "6R8O8lIC6oaoG7JUbjOmPZW01VDNDpYZcefpgNohWlw=",
+  "Source": "mobile-gateway",
+  "BasePath": "_content/mobile-gateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
