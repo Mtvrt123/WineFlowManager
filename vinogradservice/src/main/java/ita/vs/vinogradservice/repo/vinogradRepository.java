@@ -1,9 +1,9 @@
-package ita.vs.repo;
+package ita.vs.vinogradservice.repo;
 
 import io.quarkus.hibernate.reactive.panache.Panache;
 import io.quarkus.hibernate.reactive.panache.PanacheRepository;
 import io.smallrye.mutiny.Uni;
-import ita.vs.models.Vinograd;
+import ita.vs.vinogradservice.models.Vinograd;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;

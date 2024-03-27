@@ -1,11 +1,8 @@
-package ita.vs.models;
+package ita.vs.vinogradservice.models;
 
-import io.quarkus.Generated;
-import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import io.quarkus.hibernate.reactive.panache.PanacheEntityBase;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 
