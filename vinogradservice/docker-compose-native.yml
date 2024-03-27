@@ -7,8 +7,8 @@ services:
     restart: always
     expose:
       - 3306
-    ports:
-      - 3306:3306
+    #ports:
+      #- 3306:3306
     environment:
       - MYSQL_USER=vinograd
       - MYSQL_PASSWORD=vinograd
@@ -42,8 +42,8 @@ services:
       context: .
       dockerfile: src/main/docker/Dockerfile.native
     ports:
-      - "8080:8080"
-      - "9000:9000"
+      - "8082:8080"
+      #- "9000:9000"
     networks:
       - mysql-native
     depends_on:

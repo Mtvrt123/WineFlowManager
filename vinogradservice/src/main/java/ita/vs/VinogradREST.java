@@ -1,15 +1,12 @@
 package ita.vs;
-import io.quarkus.hibernate.reactive.panache.Panache;
 import io.smallrye.mutiny.Uni;
 import ita.vs.models.Vinograd;
 import ita.vs.models.VinogradPost;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import ita.vs.repo.vinogradRepository;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.logging.Logger;

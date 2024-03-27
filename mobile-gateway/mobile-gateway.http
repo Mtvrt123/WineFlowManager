@@ -1,0 +1,6 @@
+@mobile_gateway_HostAddress = http://localhost:5177
+
+GET {{mobile_gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

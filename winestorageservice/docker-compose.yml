@@ -14,8 +14,11 @@ services:
           - MYSQL_PASSWORD=winestorage
           - MYSQL_DATABASE=winestorage
           - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_ROOT_HOST:%
+        networks:
+            - spring_db
         volumes:
-          - mysql_db:/var/lib/mysql
+          - ./mysql:/var/lib/mysql
 
     winestorage:
         build: .
@@ -30,6 +33,14 @@ services:
         depends_on:
             - spring_db
         entrypoint: ["java", "-jar", "-Dspring.profiles.active=mysql","/app.jar"]
-            
+
+        networks:
+            - spring_db
+
+networks:
+    spring_db:
+        name: spring_network
+        driver: bridge    
+
 volumes:
-    mysql_db:             
+    mysql:

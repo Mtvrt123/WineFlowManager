@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "YYbrp2lP9vRUna1IHWNUL6XdLyI/6F03m8MGZGm8WJc=",
+  "Source": "web-gateway",
+  "BasePath": "_content/web-gateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
