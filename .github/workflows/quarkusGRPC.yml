@@ -46,11 +46,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: Package
-
       - name: Build and test with Maven
         working-directory: ./uporabnikiservice
         run: mvn -B package --file pom.xml
