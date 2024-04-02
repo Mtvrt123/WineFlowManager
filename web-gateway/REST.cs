@@ -27,7 +27,7 @@ namespace web_gateway
         public static async Task<string> GetVino(int id)
         {
             using var client = new HttpClient();
-            var response = await client.GetAsync(url_vino + "vina/" + id);
+            var response = await client.GetAsync(url_vino + "vino/" + id);
             var responseString = response.Content.ReadAsStringAsync().Result;
             return responseString;
         }
@@ -71,7 +71,7 @@ namespace web_gateway
             using var client = new HttpClient();
             var json = JsonSerializer.Serialize(vino);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(url_vino + "vina", data);
+            var response = await client.PostAsync(url_vino + "vino", data);
             var responseString = response.Content.ReadAsStringAsync().Result;
             return responseString;
         }
@@ -91,7 +91,7 @@ namespace web_gateway
             using var client = new HttpClient();
             var json = JsonSerializer.Serialize(vino);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync(url_vino + "vina/" + id, data);
+            var response = await client.PutAsync(url_vino + "vino/" + id, data);
             var responseString = response.Content.ReadAsStringAsync().Result;
             return responseString;
         }   
@@ -107,7 +107,7 @@ namespace web_gateway
         public static async Task<string> DeleteVino(int id)
         {
             using var client = new HttpClient();
-            var response = await client.DeleteAsync(url_vino + "vina/" + id);
+            var response = await client.DeleteAsync(url_vino + "vino/" + id);
             var responseString = response.Content.ReadAsStringAsync().Result;
             return responseString;
         }

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("web-gateway")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd9abf3df8703b6803077a2e21ec4bd385fbe70a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da699a685ded7ae82e98dbd0ae60f6b5e0736026")]
 [assembly: System.Reflection.AssemblyProductAttribute("web-gateway")]
 [assembly: System.Reflection.AssemblyTitleAttribute("web-gateway")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
