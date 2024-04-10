@@ -45,6 +45,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+      
+      - name: create target directory
+        run: mkdir target
 
       - name: Build and test with Maven
         working-directory: ./uporabnikiservice

@@ -59,6 +59,9 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: create target directory
+        run: mkdir target
+
       - name: Build and test with Maven
         working-directory: ./uporabnikiservice
         run: mvnw package -Dnative --define quarkus.native.container-build=true
