@@ -46,6 +46,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Build and test with Maven
+        working-directory: ./uporabnikiservice
+        run: mvnw package -Dnative --define quarkus.native.container-build=true
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
