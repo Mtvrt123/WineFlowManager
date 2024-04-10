@@ -46,20 +46,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build and test with Maven
-        working-directory: ./uporabnikiservice
-        run: mvn -B package --file pom.xml
-
-      - name: Prepare JAR for upload
-        working-directory: ./uporabnikiservice
-        run: mkdir build && cp target/*.jar build
-
-      - name: Upload resulting JAR
-        uses: actions/upload-artifact@v4
-        with:
-          name: Package
-          path: build
-
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -69,8 +55,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: ./uporabnikiservice
-          file: ./src/main/docker/Dockerfile.native
+          file: ./uporabnikiservice/src/main/docker/Dockerfile.native
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/uporabnikiservice:latest
 
