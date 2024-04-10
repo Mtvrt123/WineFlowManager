@@ -74,7 +74,7 @@ services:
       - 15672
     networks:
       - native
-    restart: unless-stopped
+    restart: always
     environment:
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=admin
@@ -182,6 +182,87 @@ services:
     networks:
       - native
     restart: always
+
+  #####################################################################################
+
+  webapp:
+    container_name: webapp_container
+    depends_on:
+      - web-gateway
+      - mobile-gateway
+    build:
+      context: webapp
+      dockerfile: Dockerfile
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"
+    networks:
+      - native
+    restart: always
+
+    ####################################################################
+
+  #webapp_app1:
+  #  container_name: webapp_app1_container
+  #  build:
+  #    context: webapp/app1
+  #    dockerfile: Dockerfile
+  #  expose:
+  #    - 3001
+  #  #ports:
+  #  #  - "3001:3001"
+  #  networks:
+  #    - native
+  #  restart: always
+  #  command: npm start
+#
+  #webapp_app2:
+  #  container_name: webapp_app2_container
+  #  build:
+  #    context: webapp/app2
+  #    dockerfile: Dockerfile
+  #  expose:
+  #    - 3002
+  #  #ports:
+  #  #  - "3002:3002"
+  #  networks:
+  #    - native
+  #  restart: always
+  #  command: npm start
+#
+  #webapp_app3:
+  #  container_name: webapp_app3_container
+  #  build:
+  #    context: webapp/app3
+  #    dockerfile: Dockerfile
+  #  expose:
+  #    - 3003
+  #  #ports:
+  #  #  - "3003:3003"
+  #  networks:
+  #    - native
+  #  restart: always
+  #  command: npm start
+#
+  #wabapp_shell:
+  #  container_name: webapp_shell_container
+  #  build:
+  #    context: webapp/shell
+  #    dockerfile: Dockerfile
+  #  depends_on:
+  #    - webapp_app1
+  #    - webapp_app2
+  #    - webapp_app3
+  #  expose:
+  #    - 3000
+  #  ports:
+  #    - "3000:3000"
+  #  networks:
+  #    - native
+  #  restart: always
+  #  command: npm start
+
 
 networks:
   native:

@@ -70,3 +70,4 @@ secrets.yml
 .sts4-cache
 .git-hooks/
 .vs
+//node_modules
