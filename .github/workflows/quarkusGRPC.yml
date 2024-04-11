@@ -32,7 +32,7 @@ jobs:
           name: Package
           path: build
 
-  push_to_registry:
+  push_to_registry-grpc-quarkus:
     runs-on: ubuntu-latest
     needs: build-test-package
 

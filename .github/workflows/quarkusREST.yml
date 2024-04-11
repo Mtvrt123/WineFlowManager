@@ -45,7 +45,7 @@ jobs:
           name: Package
           path: build
 
-  push_to_registry:
+  push_to_registry-rest-quarkus:
     runs-on: ubuntu-latest
     needs: build-test-package
 
@@ -78,3 +78,4 @@ jobs:
           file: ./vinogradservice/src/main/docker/Dockerfile.native
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/vinogradservice:latest
+          
