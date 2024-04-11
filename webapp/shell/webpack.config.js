@@ -11,6 +11,7 @@ module.exports = {
         static: path.join(__dirname, "dist"),
         port: 3000,
         host: "0.0.0.0",
+        allowedHosts: "all",
         proxy: {
             "/api": {
                 target: "http://web-gateway:8080",
@@ -38,7 +39,7 @@ module.exports = {
         new ModuleFederationPlugin({
             name: "shell",
             remotes: {
-                app1: "app1@http://localhost:3001/remoteEntry.js",
+                app1: "app1@http://localhost:3001/remoteEntry.js", // webapp
                 app2: "app2@http://localhost:3002/remoteEntry.js",
                 app3: "app3@http://localhost:3003/remoteEntry.js",
             },

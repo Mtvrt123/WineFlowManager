@@ -9,6 +9,7 @@ module.exports = {
         static: path.join(__dirname, "dist"),
         port: 3003,
         host: "0.0.0.0",
+        allowedHosts: "all",
         proxy: {
             "/api": {
                 target: "http://web-gateway:8080",

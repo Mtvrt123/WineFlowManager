@@ -75,6 +75,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
+          context: .
           file: ./vinogradservice/src/main/docker/Dockerfile.native
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/vinogradservice:latest

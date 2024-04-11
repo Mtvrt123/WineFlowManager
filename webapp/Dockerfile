@@ -2,6 +2,9 @@
 FROM node:18.12.0-alpine
 
 EXPOSE 3000
+EXPOSE 3001
+EXPOSE 3002
+EXPOSE 3003
 
 WORKDIR /webapp/app1
 COPY ./app1/package.json ./

@@ -195,8 +195,14 @@ services:
       dockerfile: Dockerfile
     expose:
       - 3000
+      - 3001
+      - 3002
+      - 3003
     ports:
       - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+      - "3003:3003"
     networks:
       - native
     restart: always
