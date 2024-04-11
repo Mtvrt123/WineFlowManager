@@ -60,11 +60,11 @@ jobs:
           cache: maven
 
       - name: Build and test with Maven
-        working-directory: ./uporabnikiservice
+        working-directory: ./vinogradservice
         run: mvn package -Dnative --define quarkus.native.container-build=true
 
       - name: Prepare JAR for upload
-        working-directory: ./uporabnikiservice
+        working-directory: ./vinogradservice
         run: mkdir build && cp target/*-runner build
 
       - name: Upload resulting JAR
@@ -83,7 +83,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker image
-        working-directory: ./uporabnikiservice
+        working-directory: ./vinogradservice
         run: |
           docker buildx build --platform linux/amd64,linux/arm64 --file ./src/main/docker/Dockerfile.native-micro -t ${{ secrets.DOCKER_USERNAME }}/uporabnikiservice:latest --push .
         
