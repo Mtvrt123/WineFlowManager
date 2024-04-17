@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\mobile-gateway.props" />
-</Project>
