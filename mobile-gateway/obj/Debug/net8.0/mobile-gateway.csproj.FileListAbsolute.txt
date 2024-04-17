@@ -35,3 +35,11 @@ C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - I
 C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\obj\Debug\net8.0\mobile-gateway.pdb
 C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\obj\Debug\net8.0\mobile-gateway.genruntimeconfig.cache
 C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\obj\Debug\net8.0\ref\mobile-gateway.dll
+C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\mlina\OneDrive - Univerza v Mariboru\Šola\_1. Letnik MAG\2.Sem ITA - It arhitekture\Vaje\WineFlowManager\mobile-gateway\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

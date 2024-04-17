@@ -1,8 +1,8 @@
 # Compiled class file
 *.class
 
-web-gateway/obj/Debug
-mobile-gateway/obj/Debug
+web-gateway/obj
+mobile-gateway/obj
 
 # Log file
 *.log
