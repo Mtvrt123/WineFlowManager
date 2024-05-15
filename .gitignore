@@ -71,3 +71,4 @@ secrets.yml
 .git-hooks/
 .vs
 //node_modules
+k8s.txt

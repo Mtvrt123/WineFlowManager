@@ -4,7 +4,7 @@ name: wineflowmanager
 
 services:
 
-  mysql_db_users:
+  mysql-db-users:
     image: mysql:8.0.26
     restart: always
     expose:
@@ -17,15 +17,13 @@ services:
       - MYSQL_DATABASE=uporabniki
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - mysql_db_users:/var/lib/mysql
+      - mysql-db-users:/var/lib/mysql
     networks:
         - native
 
   users:
-    container_name: users_container
-    build:
-      context: uporabnikiservice
-      dockerfile: src/main/docker/Dockerfile.native
+    container_name: users-container
+    image: mtvrt123/wineflowmanager-users:latest
     #ports:
     #  - "8081:8080"
     #  - "9000:9000"
@@ -35,9 +33,9 @@ services:
     networks:
       - native
     depends_on:
-      - mysql_db_users
+      - mysql-db-users
     environment:
-      QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://mysql_db_users:3306/uporabniki
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://mysql-db-users:3306/uporabniki
       QUARKUS_DATASOURCE_USERNAME: root
       QUARKUS_DATASOURCE_PASSWORD: root
     #volumes:
@@ -46,7 +44,7 @@ services:
 
   #####################################################################################
   
-  mysql_db_vinograds:
+  mysql-db-vinograds:
     image: mysql:8.0.26
     restart: always
     expose:
@@ -59,15 +57,13 @@ services:
       - MYSQL_DATABASE=vinograds
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - mysql_db_vinograds:/var/lib/mysql
+      - mysql-db-vinograds:/var/lib/mysql
     networks:
         - native
 
   rabbitmq:
-    container_name: rabbitmq_container
-    build: 
-      context: vinogradservice
-      dockerfile: Dockerfile.RabbitMQ
+    container_name: rabbitmq-container
+    image: mtvrt123/wineflowmanager-rabbitmq:latest
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -85,10 +81,8 @@ services:
       - ./vinogradservice/definitions.json:/etc/rabbitmq/definitions.json
 
   vinograds:
-    container_name: vinograds_container
-    build:
-      context: vinogradservice
-      dockerfile: src/main/docker/Dockerfile.native
+    container_name: vinograds-container
+    image: mtvrt123/wineflowmanager-vinograds:latest
     #ports:
     #  - "8082:8080"
     #  - "9000:9000"
@@ -97,19 +91,19 @@ services:
     networks:
       - native
     depends_on:
-      - mysql_db_vinograds
+      - mysql-db-vinograds
       - rabbitmq
     environment:
       QUARKUS_DATASOURCE_USERNAME: root
       QUARKUS_DATASOURCE_PASSWORD: root
-      QUARKUS_DATASOURCE_REACTIVE_URL: vertx-reactive:mysql://mysql_db_vinograds:3306/vinograds
+      QUARKUS_DATASOURCE_REACTIVE_URL: vertx-reactive:mysql://mysql-db-vinograds:3306/vinograds
     #volumes:
     #  - vinograds:/deployments
     restart: always
 
   #####################################################################################
 
-  mysql_db_winestorage:
+  mysql-db-winestorage:
       image: mysql:8.0.26
       restart: always
       expose:
@@ -125,12 +119,11 @@ services:
       networks:
           - native
       volumes:
-        - mysql_db_winestorage:/var/lib/mysql
+        - mysql-db-winestorage:/var/lib/mysql
 
   winestorage:
-      build:
-        context: winestorageservice
-        dockerfile: Dockerfile
+      container_name: winestorage-container
+      image: mtvrt123/wineflowmanager-winestorage:latest
       restart: always
       #ports:
       #    - 8180:8180
@@ -140,9 +133,9 @@ services:
           - SPRING_PROFILES_ACTIVE=mysql
           - SPRING_DATASOURCE_USERNAME=root
           - SPRING_DATASOURCE_PASSWORD=root
-          - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db_winestorage:3306/winestorage
+          - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db-winestorage:3306/winestorage
       depends_on:
-          - mysql_db_winestorage
+          - mysql-db-winestorage
       entrypoint: ["java", "-jar", "-Dspring.profiles.active=mysql","/app.jar"]
       networks:
           - native
@@ -150,10 +143,8 @@ services:
   #####################################################################################
   
   web-gateway:
-    container_name: web-gateway_container
-    build:
-      context: web-gateway
-      dockerfile: Dockerfile
+    container_name: web-gateway-container
+    image: mtvrt123/wineflowmanager-web-gateway:latest
       #target: dev
     environment:
       - uporabnik_url=http://users:9000
@@ -161,17 +152,15 @@ services:
       - vinograd_url=http://vinograds:8080/
     expose:
       - 8080
-    ports:
-      - "8080:8080"
+    #ports:
+    #  - "8080:8080"
     networks:
       - native
     restart: always
 
   mobile-gateway:
-    container_name: mobile-gateway_container
-    build:
-      context: mobile-gateway
-      dockerfile: Dockerfile
+    container_name: mobile-gateway-container
+    image: mtvrt123/wineflowmanager-mobile-gateway:latest
       #target: dev
     environment:
       - uporabnik_url=http://users:9000
@@ -179,8 +168,8 @@ services:
       - vinograd_url=http://vinograds:8080/
     expose:
       - 8080
-    ports:
-      - "8081:8080"
+    #ports:
+    #  - "8081:8080"
     networks:
       - native
     restart: always
@@ -188,23 +177,21 @@ services:
   #####################################################################################
 
   webapp:
-    container_name: webapp_container
+    container_name: webapp-container
     depends_on:
       - web-gateway
       - mobile-gateway
-    build:
-      context: webapp
-      dockerfile: Dockerfile
+    image: mtvrt123/wineflowmanager-webapp:latest
     expose:
       - 3000
       - 3001
       - 3002
       - 3003
-    ports:
-      - "3000:3000"
-      - "3001:3001"
-      - "3002:3002"
-      - "3003:3003"
+    #ports:
+    #  - "3000:3000"
+    #  - "3001:3001"
+    #  - "3002:3002"
+    #  - "3003:3003"
     networks:
       - native
     restart: always
@@ -278,6 +265,6 @@ networks:
     driver: bridge
 
 volumes:
-  mysql_db_users:
-  mysql_db_vinograds:
-  mysql_db_winestorage:
+  mysql-db-users:
+  mysql-db-vinograds:
+  mysql-db-winestorage:

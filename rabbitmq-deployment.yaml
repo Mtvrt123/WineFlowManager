@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert -f docker-compose-k8s-local.yml
+    kompose.version: 1.33.0 (3ce457399)
+  labels:
+    io.kompose.service: rabbitmq
+  name: rabbitmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: rabbitmq
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert -f docker-compose-k8s-local.yml
+        kompose.version: 1.33.0 (3ce457399)
+      labels:
+        io.kompose.network/native-network: "true"
+        io.kompose.service: rabbitmq
+    spec:
+      containers:
+        - env:
+            - name: RABBITMQ_DEFAULT_PASS
+              value: admin
+            - name: RABBITMQ_DEFAULT_USER
+              value: admin
+            - name: RABBITMQ_DEFAULT_VHOST
+              value: /
+          image: mtvrt123/wineflowmanager-rabbitmq:latest
+          name: rabbitmq-container
+          ports:
+            - containerPort: 5672
+              hostPort: 5672
+              protocol: TCP
+            - containerPort: 15672
+              hostPort: 15672
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /etc/rabbitmq/definitions.json
+              name: rabbitmq-cm0
+              subPath: definitions.json
+      restartPolicy: Always
+      volumes:
+        - configMap:
+            items:
+              - key: definitions.json
+                path: definitions.json
+            name: rabbitmq-cm0
+          name: rabbitmq-cm0
